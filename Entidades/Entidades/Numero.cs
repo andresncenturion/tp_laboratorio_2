@@ -48,7 +48,8 @@ namespace Entidades
             while (numero >= 1)
             {
                 resto = numero % 2;
-                numero /= 2;
+                numero = Math.Truncate(numero/2);
+
                 if (resto == 1)
                 {
                     binario = "1" + binario;
@@ -58,21 +59,25 @@ namespace Entidades
                     binario = "0" + binario;
                 }
             }
-
             return binario;
         }
 
         public string DecimalBinario(string numero)
         {
-            double retorno = 0;
-            int j = 7;
+            string retorno = "";
+            Numero aux = new Numero();
+            double validado = -1;
 
-            for (int i = 0; i < b.Length; i++)
+            validado = aux.ValidarNumero(numero);
+            if (validado != 0)
             {
-                retorno += double.Parse(b[j].ToString()) * Math.Pow(2, i);
-                j--;
+                retorno = aux.DecimalBinario(validado);
             }
-
+            else
+            {
+                Console.WriteLine("Valor invalido...");
+                Console.ReadKey();
+            }
             return retorno;
         }
 
