@@ -8,15 +8,7 @@ namespace Entidades
 {
     public class Numero
     {
-        private double numero;
-
-        private string SetNumero
-        {
-            set
-            {
-                numero = ValidarNumero(value);
-            }
-        }
+        private double numero;        
 
         public Numero() 
         {
@@ -28,9 +20,17 @@ namespace Entidades
             this.numero = numero;
         }
 
-        public Numero(string numero)
+        public Numero(string strNumero)
         {
+            SetNumero = strNumero;
+        }
 
+        private string SetNumero
+        {
+            set
+            {
+                numero = ValidarNumero(value);
+            }
         }
 
         private double ValidarNumero(string strNumero)
@@ -84,7 +84,7 @@ namespace Entidades
             else
             {
                 Console.WriteLine("Valor invalido...");
-                Console.ReadKey();
+                Console.Read();
             }
             return retorno;
         }
@@ -92,7 +92,7 @@ namespace Entidades
         public static string BinarioDecimal(string binario)
         {
             double retorno = 0;
-            int j = 7;
+            int j = binario.Length - 1;
 
             for (int i = 0; i < binario.Length; i++)
             {
@@ -135,12 +135,7 @@ namespace Entidades
                 {
                     retorno = n1.numero / n2.numero;
                 }
-            }
-            else
-            {
-                Console.WriteLine("No es posible dividir por cero");
-                Console.ReadKey();
-            }
+            }            
             return retorno;
         }
 
