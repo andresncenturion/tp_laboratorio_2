@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Calculadora
+    public class Calculadora
     {
         private static string ValidarOperador(string operador)
         {
@@ -31,7 +31,7 @@ namespace Entidades
             return retorno;
         }
 
-        public double Operar(Numero num1, Numero num2, string operador)
+        public static double Operar(Numero num1, Numero num2, string operador)
         {
             double retorno = double.MinValue;            
 

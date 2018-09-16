@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Numero
+    public class Numero
     {
         private double numero;
+
+        private string SetNumero
+        {
+            set
+            {
+                numero = ValidarNumero(value);
+            }
+        }
 
         public Numero() 
         {
@@ -40,7 +48,7 @@ namespace Entidades
             return retorno;
         }
 
-        public string DecimalBinario(double numero)
+        public static string DecimalBinario(double numero)
         {
             string binario = "";
             double resto = -1;
@@ -62,7 +70,7 @@ namespace Entidades
             return binario;
         }
 
-        public string DecimalBinario(string numero)
+        public static string DecimalBinario(string numero)
         {
             string retorno = "";
             Numero aux = new Numero();
@@ -71,7 +79,7 @@ namespace Entidades
             validado = aux.ValidarNumero(numero);
             if (validado != 0)
             {
-                retorno = aux.DecimalBinario(validado);
+                retorno = DecimalBinario(validado);
             }
             else
             {
@@ -79,6 +87,20 @@ namespace Entidades
                 Console.ReadKey();
             }
             return retorno;
+        }
+
+        public static string BinarioDecimal(string binario)
+        {
+            double retorno = 0;
+            int j = 7;
+
+            for (int i = 0; i < binario.Length; i++)
+            {
+                retorno += double.Parse(binario[j].ToString()) * Math.Pow(2, i);
+                j--;
+            }            
+
+            return retorno.ToString();
         }
 
         public static double operator - (Numero n1, Numero n2)
