@@ -67,7 +67,7 @@
             this.cmbOperador.Location = new System.Drawing.Point(343, 151);
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(82, 41);
-            this.cmbOperador.TabIndex = 2;
+            this.cmbOperador.TabIndex = 2;            
             // 
             // btnOperar
             // 

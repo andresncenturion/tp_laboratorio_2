@@ -1,0 +1,6 @@
+C:\Users\andre\Documents\GitHub\tp_laboratorio_2\Entidades\Entidades2\bin\Debug\Entidades2.dll
+C:\Users\andre\Documents\GitHub\tp_laboratorio_2\Entidades\Entidades2\bin\Debug\Entidades2.pdb
+C:\Users\andre\Documents\GitHub\tp_laboratorio_2\Entidades\Entidades2\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\andre\Documents\GitHub\tp_laboratorio_2\Entidades\Entidades2\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\andre\Documents\GitHub\tp_laboratorio_2\Entidades\Entidades2\obj\Debug\Entidades2.dll
+C:\Users\andre\Documents\GitHub\tp_laboratorio_2\Entidades\Entidades2\obj\Debug\Entidades2.pdb
