@@ -58,6 +58,7 @@
             // cmbOperador
             // 
             this.cmbOperador.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbOperador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOperador.FormattingEnabled = true;
             this.cmbOperador.Items.AddRange(new object[] {
             "+",
@@ -67,7 +68,8 @@
             this.cmbOperador.Location = new System.Drawing.Point(343, 151);
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(82, 41);
-            this.cmbOperador.TabIndex = 2;            
+            this.cmbOperador.TabIndex = 2;
+            this.cmbOperador.SelectedIndex = 0;
             // 
             // btnOperar
             // 
