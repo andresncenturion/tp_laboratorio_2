@@ -137,7 +137,10 @@ namespace ClasesAbstractas
 
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
-
+            if(dato.Length>8)
+            {
+                throw new DniInvalidoException();
+            }
         }
 
         private string ValidarNombreApellido(string dato)
