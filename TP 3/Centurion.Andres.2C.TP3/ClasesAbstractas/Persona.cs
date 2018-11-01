@@ -101,7 +101,7 @@ namespace ClasesAbstractas
 
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
-            StringToDni = dni;
+            this.StringToDni = dni;
         }
 
         public override string ToString()
