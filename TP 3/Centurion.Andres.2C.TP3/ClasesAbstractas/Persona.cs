@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Excepciones;
+using System.Text.RegularExpressions;
 
 namespace ClasesAbstractas
 {
@@ -27,7 +28,7 @@ namespace ClasesAbstractas
             }
             set
             {
-                this.apellido = value;
+                this.apellido = ValidarNombreApellido(value);
             }
         }
 
@@ -63,7 +64,7 @@ namespace ClasesAbstractas
             }
             set
             {
-                this.nombre = value;
+                this.nombre = ValidarNombreApellido(value);
             }
         }
 
@@ -71,14 +72,7 @@ namespace ClasesAbstractas
         {
             set
             {
-                if(int.TryParse(value, out int dniParseado))
-                {
-                    this.dni = dniParseado;
-                }
-                else
-                {
-                    this.dni = -1;
-                }
+                this.dni = ValidarDni(this.Nacionalidad, value);
             }
         }
 
@@ -117,19 +111,19 @@ namespace ClasesAbstractas
         }
         
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
-        {
+        {            
             if(nacionalidad == ENacionalidad.Argentino)
             {
                 if(dato < 1 || dato > 89999999)
                 {
-                    throw new NacionalidadInvalidaException("Nacionalidad invalida");
+                    throw new NacionalidadInvalidaException("El DNI no es valido para esta nacionalidad.");
                 }
             }
             else
             {
                 if(dato < 90000000 || dato > 99999999)
                 {
-                    throw new NacionalidadInvalidaException("Nacionalidad invalida");
+                    throw new NacionalidadInvalidaException("El DNI no es valido para esta nacionalidad.");
                 }
             }
             return dato;
@@ -137,15 +131,34 @@ namespace ClasesAbstractas
 
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
-            if(dato.Length>8)
+            int retorno;
+            string valido = @"^[0-9]$";            
+
+            if(dato.Length > 8)
             {
-                throw new DniInvalidoException();
+                throw new DniInvalidoException("El DNI tiene mas caracteres de los permitidos");
             }
+            else
+            {
+                if(!Regex.IsMatch(dato, valido))
+                {
+                    throw new DniInvalidoException("Caracteres no soportados en DNI");
+                }
+                int.TryParse(dato, out retorno);
+            }
+            return ValidarDni(nacionalidad, dato);
         }
 
         private string ValidarNombreApellido(string dato)
         {
+            string validos = @"^([A-Z][a-z]+)(\s[A-Z][a-z]+)$";
 
+            if(!Regex.IsMatch(dato, validos))
+            {
+                dato = "";
+            }
+
+            return dato;
         }
     }
 }
