@@ -25,7 +25,7 @@ namespace ClasesInstanciables
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad) : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.clasesDelDia = new Queue<Universidad.EClases>();
-            this.
+            this._randomClases();
         }
 
         protected override string MostrarDatos()
