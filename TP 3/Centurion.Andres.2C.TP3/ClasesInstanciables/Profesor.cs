@@ -38,6 +38,23 @@ namespace ClasesInstanciables
             return sb.ToString();
         }
 
+        public static bool operator == (Profesor i, Universidad.EClases clase)
+        {
+            bool retorno = false;
+
+            if(i.clasesDelDia.Contains(clase))
+            {
+                retorno = true;
+            }
+
+            return retorno;
+        }
+
+        public static bool operator != (Profesor i, Universidad.EClases clase)
+        {
+            return !(i == clase);
+        }
+
         private void _randomClases()
         {
             for (int i = 0; i < 2; i++)

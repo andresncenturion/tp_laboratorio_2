@@ -23,7 +23,7 @@ namespace ClasesInstanciables
             }
             set
             {
-
+                this.alumnos = value;
             }
         }
 
@@ -35,7 +35,7 @@ namespace ClasesInstanciables
             }
             set
             {
-
+                this.clase = value;
             }
         }
 
@@ -47,7 +47,7 @@ namespace ClasesInstanciables
             }
             set
             {
-
+                this.instructor = value;
             }
         }
 
@@ -112,11 +112,21 @@ namespace ClasesInstanciables
             {
                 throw new ArchivosException("Error al guardar archivo");
             }
+
+            return retorno;
         }
 
         public string Leer()
         {
+            string retorno;
+            Texto t = new Texto();            
 
+            if(t.Leer("Jornada.txt", out retorno) == false)
+            {
+                throw new ArchivosException("Error al leer el archivo");
+            }
+
+            return retorno;
         }
     }
 }
