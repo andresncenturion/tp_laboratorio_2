@@ -66,6 +66,7 @@ namespace ClasesInstanciables
         protected override string ParticiparEnClase()
         {
             StringBuilder sb = new StringBuilder();
+
             sb.AppendLine("Clases del dia: ");
             if (!object.ReferenceEquals(this.clasesDelDia, null))
             {

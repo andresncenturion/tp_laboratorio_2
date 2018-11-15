@@ -103,7 +103,7 @@ namespace ClasesInstanciables
             return sb.ToString();
         }
 
-        public bool Guardar(Jornada jornada)
+        public static bool Guardar(Jornada jornada)
         {
             bool retorno = true;    
             Texto t = new Texto();
@@ -116,7 +116,7 @@ namespace ClasesInstanciables
             return retorno;
         }
 
-        public string Leer()
+        public static string Leer()
         {
             string retorno;
             Texto t = new Texto();            

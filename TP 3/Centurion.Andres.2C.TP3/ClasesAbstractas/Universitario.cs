@@ -63,5 +63,6 @@ namespace ClasesAbstractas
         {
             return !(pg1 == pg2);
         }
+        
     }
 }

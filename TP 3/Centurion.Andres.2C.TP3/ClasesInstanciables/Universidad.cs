@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Excepciones;
+using Archivos;
 
 namespace ClasesInstanciables
 {
@@ -145,6 +146,90 @@ namespace ClasesInstanciables
                 }
                 throw new SinProfesorException();
             }
+            return retorno;
+        }
+
+        public static Universidad operator + (Universidad g, EClases clase)
+        {
+            Jornada j = new Jornada(clase, g == clase);
+
+            foreach(Alumno a in g.alumnos)
+            {
+                if(a == clase)
+                {
+                    j.Alumnos.Add(a);
+                }                
+            }
+            g.Jornadas.Add(j);
+
+            return g;
+        }
+
+        public static Universidad operator + (Universidad u, Alumno a)
+        {
+            if(!(u == a))
+            {
+                u.alumnos.Add(a);
+            }
+            else
+            {
+                throw new AlumnoRepetidoException();
+            }
+
+            return u;
+        }
+
+        public static Universidad operator + (Universidad u, Profesor i)
+        {
+            if(!(u == i))
+            {
+                u.profesores.Add(i);
+            }
+
+            return u;
+        }
+
+        public override string ToString()
+        {
+            return Universidad.MostrarDatos(this);
+        }
+
+        private static string MostrarDatos(Universidad uni)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (Jornada j in uni.Jornadas)
+            {
+                sb.AppendLine(j.ToString());
+            }
+
+            return sb.ToString();
+        }
+
+        public static bool Guardar(Universidad gim)
+        {
+            bool retorno = true;
+            Xml<Universidad> u = new Xml<Universidad>();
+
+            if (u.Guardar("Universidad.xml", gim) == false)
+            {
+                retorno = false;
+                throw new ArchivosException("No se pudo guardar la universidad.");
+            }
+
+            return retorno;
+        }
+
+        public static Universidad Leer()
+        {
+            Universidad retorno;
+            Xml<Universidad> u = new Xml<Universidad>();
+
+            if (u.Leer("Universidad.xml", out retorno) == false)
+            {
+                throw new ArchivosException("No se pudo leer la universidad.");
+            }
+
             return retorno;
         }
 

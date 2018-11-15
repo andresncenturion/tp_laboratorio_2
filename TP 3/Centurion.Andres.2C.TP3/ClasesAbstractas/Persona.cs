@@ -131,22 +131,22 @@ namespace ClasesAbstractas
 
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
-            int retorno;
-            string valido = @"^[0-9]$";            
+            int dni = 0;
 
-            if(dato.Length > 8)
+            if (Regex.IsMatch(dato, @"^[0-9]+[0-9\.]*$"))
             {
-                throw new DniInvalidoException("El DNI tiene mas caracteres de los permitidos");
+                dato = dato.Replace(".", "");
+                if (int.TryParse(dato, out dni))
+                {
+                    dni = ValidarDni(nacionalidad, dni);
+                }
             }
             else
             {
-                if(!Regex.IsMatch(dato, valido))
-                {
-                    throw new DniInvalidoException("Caracteres no soportados en DNI");
-                }
-                int.TryParse(dato, out retorno);
+                throw new DniInvalidoException("El dni tiene caracteres que no corresponden");
             }
-            return ValidarDni(nacionalidad, dato);
+
+            return dni;
         }
 
         private string ValidarNombreApellido(string dato)

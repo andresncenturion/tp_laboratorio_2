@@ -20,12 +20,12 @@ namespace Excepciones
 
         }
 
-        public DniInvalidoException(string mensaje) : this(mensaje, null)
+        public DniInvalidoException(string msj) : this(msj, null)
         {
 
         }
 
-        public DniInvalidoException(string mensaje, Exception e) : base(mensaje, e)
+        public DniInvalidoException(string msj, Exception e) : base(msj, e)
         {
 
         }
