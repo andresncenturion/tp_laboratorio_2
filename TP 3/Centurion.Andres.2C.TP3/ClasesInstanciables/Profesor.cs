@@ -30,10 +30,10 @@ namespace ClasesInstanciables
 
         protected override string MostrarDatos()
         {
+            string retorno;
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine(base.ToString());
-            sb.AppendLine("Clases del dia:" + this.clasesDelDia);
+            
+            sb.Append(base.ToString());
 
             return sb.ToString();
         }
@@ -72,7 +72,7 @@ namespace ClasesInstanciables
             {
                 foreach (Universidad.EClases clase in this.clasesDelDia)
                 {
-                    sb.AppendLine("" + clase);
+                    sb.AppendLine("" + clase.ToString());
                 }
             }
             return sb.ToString();
