@@ -49,10 +49,10 @@ namespace ClasesAbstractas
         {
             bool retorno = false;
 
-            if (!ReferenceEquals(obj, null) && obj is Universitario)
+            if (this is Universitario && obj is Universitario)
             {
-                Universitario objeto = (Universitario)obj;
-                if (objeto.legajo == this.legajo && objeto.Dni == this.Dni)
+                Universitario aux = (Universitario)obj;
+                if (aux.legajo == this.legajo || aux.Dni == this.Dni)
                 {
                     retorno = true;
                 }
@@ -99,7 +99,7 @@ namespace ClasesAbstractas
 
         /// <summary>
         /// Retorna los datos del Univeristario
-        /// </summary>
+        /// </summary>  
         /// <returns>Datos del Universitario en formato String</returns>
         protected virtual string MostrarDatos()
         {

@@ -173,24 +173,16 @@ namespace ClasesInstanciables
         /// <param name="clase">Clase a comparar</param>
         /// <returns>El primer profesor capaz de dar la clase en la Univeridad recibidas por parametros</returns>
         public static Profesor operator == (Universidad u, EClases clase)
-        {
-            Profesor retorno = null;
-            int flagProfesor = 0;
-
+        {            
             foreach (Profesor p in u.Instructores)
             {
                 if (p == clase)
                 {
-                    flagProfesor = 1;
-                    retorno = p;
-                }                
-            }
-            if (flagProfesor == 0)
-            {
-                throw new SinProfesorException();
+                    return p;
+                }
             }
 
-            return retorno;
+            throw new SinProfesorException();            
         }
 
         /// <summary>
@@ -200,19 +192,15 @@ namespace ClasesInstanciables
         /// <param name="clase">Clase a comparar</param>
         /// <returns>El primer profesor que no sea capaz de dar la clase en la Univeridad recibidas por parametros</returns>
         public static Profesor operator != (Universidad u, EClases clase)
-        {
-            Profesor retorno = null;
-
+        {            
             foreach (Profesor p in u.profesores)
             {
                 if (p != clase)
                 {
-                    retorno = p;
-                    break;
-                }
-                throw new SinProfesorException();
+                    return p;                    
+                }                
             }
-            return retorno;
+            throw new SinProfesorException();
         }
 
         /// <summary>
@@ -245,13 +233,13 @@ namespace ClasesInstanciables
         /// <returns>Retorna una Universidad con el Alumno agregado, o no</returns>
         public static Universidad operator + (Universidad u, Alumno a)
         {
-            if(u == a)
+            if (u != a)
             {
-                throw new AlumnoRepetidoException();
+                u.Alumnos.Add(a);
             }
             else
             {
-                u.Alumnos.Add(a);           
+                throw new AlumnoRepetidoException();
             }
 
             return u;
@@ -265,7 +253,7 @@ namespace ClasesInstanciables
         /// <returns>Retorna una Universidad con el Profesor agregado, o no</returns>
         public static Universidad operator + (Universidad u, Profesor i)
         {
-            if(!(u == i))
+            if(u != i)
             {
                 u.profesores.Add(i);
             }

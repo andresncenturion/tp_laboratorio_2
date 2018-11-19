@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
-    public class AlumnoRepetidoException : Exception
+    public class SinProfesorException : Exception
     {
-        public AlumnoRepetidoException() : base("Alumno repetido")
+        public SinProfesorException() : base("No hay profesor para la clase.")
         {
 
         }

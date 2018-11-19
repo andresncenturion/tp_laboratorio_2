@@ -54,6 +54,28 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Archivos\Archivos.csproj">
+      <Project>{69cc9434-f46c-4157-acac-ef8780c8e203}</Project>
+      <Name>Archivos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClasesAbstractas\ClasesAbstractas.csproj">
+      <Project>{6546c609-bd80-44cb-b87e-0ff598446a9b}</Project>
+      <Name>ClasesAbstractas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClasesInstanciables\ClasesInstanciables.csproj">
+      <Project>{a5112c42-805c-4469-a939-d4ed173617d6}</Project>
+      <Name>ClasesInstanciables</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{b0d1c06c-dadc-420f-82ff-0f83cd123bba}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VistaConsola\VistaConsola.csproj">
+      <Project>{66c217db-303d-4db4-9adb-bb03e3c0ae49}</Project>
+      <Name>VistaConsola</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

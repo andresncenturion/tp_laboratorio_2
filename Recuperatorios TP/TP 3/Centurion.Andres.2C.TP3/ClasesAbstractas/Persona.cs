@@ -203,7 +203,8 @@ namespace ClasesAbstractas
             int retorno;
 
             if (Regex.IsMatch(dato, @"^[0-9]+[0-9\.]*$")) // Valida que los caracteres del DNI sean numeros
-            {                
+            {
+                dato = dato.Replace(".", "");
                 if (int.TryParse(dato, out retorno))
                 {
                     retorno = ValidarDni(nacionalidad, retorno); // Valida que el DNI este dentro del rango esperado

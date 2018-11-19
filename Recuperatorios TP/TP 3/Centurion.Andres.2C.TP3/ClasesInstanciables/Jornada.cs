@@ -72,7 +72,7 @@ namespace ClasesInstanciables
         /// </summary>
         private Jornada()
         {
-            alumnos = new List<Alumno>();
+            this.alumnos = new List<Alumno>();
         }
 
         /// <summary>
@@ -127,9 +127,9 @@ namespace ClasesInstanciables
         /// <returns>Retorna la Jornada con el Alumno agregado o no</returns>
         public static Jornada operator + (Jornada jornada, Alumno a)
         {
-            if (jornada != a)
+            if(jornada != a)
             {
-                jornada.alumnos.Add(a);
+                jornada.Alumnos.Add(a);
             }
 
             return jornada;
@@ -143,8 +143,8 @@ namespace ClasesInstanciables
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("CLASE: " + this.clase);
-            sb.AppendLine("PROFESOR: " + this.instructor);
+            sb.AppendLine("JORNADA: ");
+            sb.AppendFormat("CLASE DE: {0} POR {1}", this.clase, this.instructor);            
             sb.AppendLine("ALUMNOS:");
             foreach (Alumno a in this.alumnos)
             {

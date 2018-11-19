@@ -87,15 +87,8 @@ namespace ClasesInstanciables
         /// <param name="clase">Clase a comparar</param>
         /// <returns>True si el Alumno toma esa clase y no es deudor; si no, false</returns>
         public static bool operator != (Alumno a, Universidad.EClases clase)
-        {
-            bool retorno = false;
-
-            if(a.claseQueToma != clase)
-            {
-                retorno = true;
-            }
-
-            return retorno;
+        {            
+            return !(a == clase);
         }
 
         /// <summary>
